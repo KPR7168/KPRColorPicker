@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, KPRColorPickerDelegate {
 
+    private var picker : KPRColorPicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        picker = KPRColorPicker.init()
+        picker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,8 +27,6 @@ class ViewController: UIViewController, KPRColorPickerDelegate {
 
 
     @IBAction func buttonTouched(_ sender: Any) {
-        let picker = KPRColorPicker.init()
-        picker.delegate = self
         self.present(picker, animated: true, completion: nil)
     }
     
