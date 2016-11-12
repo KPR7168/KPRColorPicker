@@ -27,7 +27,7 @@ class ViewController: UIViewController, KPRColorPickerDelegate {
         self.present(picker, animated: true, completion: nil)
     }
     
-    func KPRColorPickerDidSelectWithUIColor(sender: UIColor){
+    func KPRColorPickerDidSelectWithUIColor(_ sender: UIColor){
         self.view.backgroundColor = sender
     }
 }

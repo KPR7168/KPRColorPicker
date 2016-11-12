@@ -11,7 +11,7 @@ import UIKit
 import QuartzCore
 
 protocol KPRColorPickerDelegate : class{
-    func KPRColorPickerDidSelectWithUIColor(sender: UIColor)
+    func KPRColorPickerDidSelectWithUIColor(_ sender: UIColor)
 }
 
 enum GRADIENT {
@@ -23,13 +23,13 @@ class KPRColorPicker: UIViewController{
     weak var delegate: KPRColorPickerDelegate?
     //private let COLOR_PICKER_VIEW_HEIGHT = CGFloat(290)
     
-    private var dismissButton : UIButton!
-    private var rgbButton : UIButton!
-    private var mainColorPickerView : UIView!
-    private var secondaryColorPickerView : UIView!
-    private var mainColorSelectorImage : UIImageView!
-    private var secondaryColorSelectorImage : UIImageView!
-    private var selectedColor : UIColor!
+    fileprivate var dismissButton : UIButton!
+    fileprivate var rgbButton : UIButton!
+    fileprivate var mainColorPickerView : UIView!
+    fileprivate var secondaryColorPickerView : UIView!
+    fileprivate var mainColorSelectorImage : UIImageView!
+    fileprivate var secondaryColorSelectorImage : UIImageView!
+    fileprivate var selectedColor : UIColor!
     
     //MARK: contructor
     
@@ -45,7 +45,7 @@ class KPRColorPicker: UIViewController{
         self.createSecondaryColorSelector()
         selectedColor = self.colorOfPoint(point: self.mainColorSelectorImage.center,
                                           inView: self.mainColorPickerView)
-        updateSecondaryPickerView(color: selectedColor)
+        updateSecondaryPickerView(selectedColor)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -66,7 +66,7 @@ class KPRColorPicker: UIViewController{
     
     // MARK: build ui elements
     
-    private func createDismissButton(){
+    fileprivate func createDismissButton(){
         self.dismissButton = UIButton.init(frame: CGRect.init(x: 5, y: 10, width: 50, height: 50))
         self.dismissButton.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         self.dismissButton.setTitle("✕", for: .normal)
@@ -77,7 +77,7 @@ class KPRColorPicker: UIViewController{
         self.view.addSubview(self.dismissButton)
     }
     
-    private func createRGBButton(){
+    fileprivate func createRGBButton(){
         let origin = CGPoint.init(x: self.view.frame.origin.x / 2, y: 60)
         let size = CGSize.init(width: self.view.frame.size.width, height: 80)
         self.rgbButton = UIButton.init(frame: CGRect.init(origin: origin, size: size))
@@ -93,7 +93,7 @@ class KPRColorPicker: UIViewController{
         self.view.addSubview(self.rgbButton)
     }
     
-    private func createMainColorPickerView(){
+    fileprivate func createMainColorPickerView(){
         let WIDTH = CGFloat(44.00)
         let HEIGHT = self.secondaryColorPickerView.frame.size.width
         let size = CGSize.init(width: WIDTH, height: HEIGHT)
@@ -116,11 +116,9 @@ class KPRColorPicker: UIViewController{
         self.mainColorPickerView.layer.borderColor = UIColor.black.cgColor
         self.mainColorPickerView.layer.borderWidth = 1.0
         
-        let tapGesture = UITapGestureRecognizer.init(target: self,
-                                                     action: #selector(self.mainPickerDidTap(sender:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.mainPickerDidTap(_:)))
         tapGesture.numberOfTapsRequired = 1
-        let panGesture = UIPanGestureRecognizer.init(target: self,
-                                                     action: #selector(self.mainPickerDidTap(sender:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.mainPickerDidTap(_:)))
         
         self.mainColorPickerView.addGestureRecognizer(tapGesture)
         self.mainColorPickerView.addGestureRecognizer(panGesture)
@@ -128,7 +126,7 @@ class KPRColorPicker: UIViewController{
         self.view.addSubview(self.mainColorPickerView)
     }
     
-    private func createSecondaryPickerview(){
+    fileprivate func createSecondaryPickerview(){
         let WIDTH = self.deviceFrame().width - 89
         let HEIGHT = WIDTH
         let size = CGSize.init(width: WIDTH, height: HEIGHT)
@@ -149,18 +147,16 @@ class KPRColorPicker: UIViewController{
         self.secondaryColorPickerView.layer.borderColor = UIColor.black.cgColor
         self.secondaryColorPickerView.layer.borderWidth = 1.0
         
-        let tapGesture = UITapGestureRecognizer.init(target: self,
-                                                     action: #selector(secondaryPickerDidTap(sender:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.secondaryPickerDidTap(_:)))
         tapGesture.numberOfTapsRequired = 1
-        let panGesture = UIPanGestureRecognizer.init(target: self,
-                                                     action: #selector(secondaryPickerDidTap(sender:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.secondaryPickerDidTap(_:)))
         self.secondaryColorPickerView.addGestureRecognizer(tapGesture)
         self.secondaryColorPickerView.addGestureRecognizer(panGesture)
         
         self.view.addSubview(self.secondaryColorPickerView)
     }
     
-    private func createMainColorSelector(){
+    fileprivate func createMainColorSelector(){
         let selector = UIImage.init(named: "selector_rectangle")
         self.mainColorSelectorImage = UIImageView.init(image: selector)
         self.mainColorSelectorImage.frame = CGRect.init(x: -5,
@@ -170,7 +166,7 @@ class KPRColorPicker: UIViewController{
         self.mainColorPickerView.insertSubview(self.mainColorSelectorImage, at: 1)
     }
     
-    private func createSecondaryColorSelector(){
+    fileprivate func createSecondaryColorSelector(){
         let selector = UIImage.init(named: "selector_round")
         self.secondaryColorSelectorImage = UIImageView.init(image: selector)
         self.secondaryColorSelectorImage.frame = CGRect.init(x: 0,
@@ -183,18 +179,18 @@ class KPRColorPicker: UIViewController{
     
     // MARK: gesture recognizer
     
-    @objc private func mainPickerDidTap(sender: UIGestureRecognizer){
+    @objc fileprivate func mainPickerDidTap(_ sender: UIGestureRecognizer){
         let panLocation = sender.location(in: self.mainColorPickerView)
         
         if (self.mainColorPickerView.bounds.origin.y + 3)...(self.mainColorPickerView.bounds.origin.y + self.mainColorPickerView.bounds.size.height - 3) ~= panLocation.y{
             self.mainColorSelectorImage.center.y = panLocation.y
             let selectedColor = self.colorOfPoint(point: self.mainColorSelectorImage.center,
                                                   inView: self.mainColorPickerView)
-            self.updateSecondaryPickerView(color: selectedColor)
+            self.updateSecondaryPickerView(selectedColor)
         }
     }
     
-    @objc private func secondaryPickerDidTap(sender: UIGestureRecognizer){
+    @objc fileprivate func secondaryPickerDidTap(_ sender: UIGestureRecognizer){
         let MARGIN = CGFloat(3)
         let panLocation = sender.location(in: self.secondaryColorPickerView)
         
@@ -212,18 +208,18 @@ class KPRColorPicker: UIViewController{
     
     // MARK: ui element actions
     
-    @objc private func dismissButtonTouched(_ button:UIButton!) {
+    @objc fileprivate func dismissButtonTouched(_ button:UIButton!) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @objc private func rgbButtonTouched(_ button:UIButton!){
+    @objc fileprivate func rgbButtonTouched(_ button:UIButton!){
         self.dismiss(animated: true, completion: nil)
-        self.delegate?.KPRColorPickerDidSelectWithUIColor(sender: self.selectedColor)
+        self.delegate?.KPRColorPickerDidSelectWithUIColor(self.selectedColor)
     }
     
     // MARK: backend logic
     
-    private func updateSecondaryPickerView(color:UIColor){
+    fileprivate func updateSecondaryPickerView(_ color:UIColor){
         let darkColor = [UIColor.black.cgColor,
                          color.cgColor]
         let firstLayer = self.gradientLayer(inView: self.secondaryColorPickerView,
@@ -233,7 +229,7 @@ class KPRColorPicker: UIViewController{
         self.updateBackgroundColor()
     }
     
-    private func updateBackgroundColor(){
+    fileprivate func updateBackgroundColor(){
         self.selectedColor = self.colorOfPoint(point: self.secondaryColorSelectorImage.center,
                                                inView: self.secondaryColorPickerView);
         self.view.backgroundColor = self.selectedColor
@@ -245,7 +241,7 @@ class KPRColorPicker: UIViewController{
     }
     
     //update color when background color too dark to see
-    private func updateColor(){
+    fileprivate func updateColor(){
         if self.secondaryColorSelectorImage.center.x < self.secondaryColorPickerView.frame.size.width / 2 && self.secondaryColorSelectorImage.center.y < self.secondaryColorPickerView.frame.size.height / 2{
             
             self.secondaryColorPickerView.layer.borderColor = UIColor.white.cgColor
