@@ -267,7 +267,7 @@ class KPRColorPicker: UIViewController{
         }
     }
     
-    private func gradientLayer(inView:UIView, withColor:[CGColor],orientation:GRADIENT) -> CALayer{
+    fileprivate func gradientLayer(inView:UIView, withColor:[CGColor],orientation:GRADIENT) -> CALayer{
         let gradient = CAGradientLayer.init()
         gradient.frame = CGRect.init(x: 0,
                                      y: 0,
@@ -285,7 +285,7 @@ class KPRColorPicker: UIViewController{
         return gradient
     }
     
-    private func colorOfPoint(point: CGPoint, inView:UIView) -> UIColor{
+    fileprivate func colorOfPoint(point: CGPoint, inView:UIView) -> UIColor{
         let pixel = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: 4)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
@@ -301,14 +301,14 @@ class KPRColorPicker: UIViewController{
     }
     
     //return current device frame
-    private func deviceFrame() -> CGSize{
+    fileprivate func deviceFrame() -> CGSize{
         let deviceWidth = UIScreen.main.bounds.size.width
         let deviceHeight = UIScreen.main.bounds.size.height
         let deviceScreenSize = CGSize.init(width: deviceWidth, height: deviceHeight)
         return deviceScreenSize;
     }
     
-    private func colorToRGB(_ color: UIColor) -> String{
+    fileprivate func colorToRGB(_ color: UIColor) -> String{
         let redValue = (color.cgColor.components?[0])! * 255
         let greenValue = (color.cgColor.components?[1])! * 255
         let blueValue = (color.cgColor.components?[2])! * 255
@@ -316,7 +316,7 @@ class KPRColorPicker: UIViewController{
         return rgbString
     }
     
-    private func colorToHex(_ color: UIColor) -> String{
+    fileprivate func colorToHex(_ color: UIColor) -> String{
         let red = color.cgColor.components?[0]
         let green = color.cgColor.components?[1]
         let blue = color.cgColor.components?[2]
