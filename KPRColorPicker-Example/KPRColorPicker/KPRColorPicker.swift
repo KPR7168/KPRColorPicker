@@ -131,8 +131,6 @@ class KPRColorPicker: UIViewController{
     private func createSecondaryPickerview(){
         let WIDTH = self.deviceFrame().width - 89
         let HEIGHT = WIDTH
-        //        let WIDTH = COLOR_PICKER_VIEW_HEIGHT
-        //        let HEIGHT = COLOR_PICKER_VIEW_HEIGHT
         let size = CGSize.init(width: WIDTH, height: HEIGHT)
         let origin = CGPoint.init(x: 15,
                                   y: (self.view.frame.size.height - WIDTH) - 15)
