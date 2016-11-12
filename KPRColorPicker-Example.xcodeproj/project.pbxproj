@@ -14,6 +14,7 @@
 		AF4A23691DD6BCF700F21A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4A23671DD6BCF700F21A01 /* LaunchScreen.storyboard */; };
 		AF4A23731DD6BD3000F21A01 /* KPRColorPickerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4A23711DD6BD3000F21A01 /* KPRColorPickerAssets.xcassets */; };
 		AF4A23741DD6BD3000F21A01 /* KPRColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A23721DD6BD3000F21A01 /* KPRColorPicker.swift */; };
+		AFA676F81DD713A0002FD35C /* Simulator Screen Shot Nov 12, 2016, 2.40.15 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = AFA676F71DD713A0002FD35C /* Simulator Screen Shot Nov 12, 2016, 2.40.15 PM.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		AF4A236A1DD6BCF700F21A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF4A23711DD6BD3000F21A01 /* KPRColorPickerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = KPRColorPickerAssets.xcassets; sourceTree = "<group>"; };
 		AF4A23721DD6BD3000F21A01 /* KPRColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPRColorPicker.swift; sourceTree = "<group>"; };
+		AFA676F31DD7114D002FD35C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AFA676F71DD713A0002FD35C /* Simulator Screen Shot Nov 12, 2016, 2.40.15 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot Nov 12, 2016, 2.40.15 PM.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +45,8 @@
 		AF4A23521DD6BCF700F21A01 = {
 			isa = PBXGroup;
 			children = (
+				AFA676F31DD7114D002FD35C /* README.md */,
+				AFA676F71DD713A0002FD35C /* Simulator Screen Shot Nov 12, 2016, 2.40.15 PM.png */,
 				AF4A235D1DD6BCF700F21A01 /* KPRColorPicker-Example */,
 				AF4A235C1DD6BCF700F21A01 /* Products */,
 			);
@@ -110,7 +115,6 @@
 				TargetAttributes = {
 					AF4A235A1DD6BCF700F21A01 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = HXH9AC8R33;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -142,6 +146,7 @@
 				AF4A23661DD6BCF700F21A01 /* Assets.xcassets in Resources */,
 				AF4A23731DD6BD3000F21A01 /* KPRColorPickerAssets.xcassets in Resources */,
 				AF4A23641DD6BCF700F21A01 /* Main.storyboard in Resources */,
+				AFA676F81DD713A0002FD35C /* Simulator Screen Shot Nov 12, 2016, 2.40.15 PM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HXH9AC8R33;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "KPRColorPicker-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -289,7 +294,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HXH9AC8R33;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "KPRColorPicker-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
