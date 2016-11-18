@@ -25,7 +25,7 @@ self.present(picker, animated: true, completion: nil)
 ```
 
 To registered delegation listener
-```
+```swift
 func KPRColorPickerDidSelectWithUIColor(sender: UIColor){
 self.view.backgroundColor = sender
 }
