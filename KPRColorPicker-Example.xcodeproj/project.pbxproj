@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF2E0AAF1E7CB62C00F5DBA9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AF2E0AAE1E7CB62C00F5DBA9 /* LICENSE */; };
 		AF4A235F1DD6BCF700F21A01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A235E1DD6BCF700F21A01 /* AppDelegate.swift */; };
 		AF4A23611DD6BCF700F21A01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A23601DD6BCF700F21A01 /* ViewController.swift */; };
 		AF4A23641DD6BCF700F21A01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4A23621DD6BCF700F21A01 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF2E0AAE1E7CB62C00F5DBA9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AF4A235B1DD6BCF700F21A01 /* KPRColorPicker-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KPRColorPicker-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4A235E1DD6BCF700F21A01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4A23601DD6BCF700F21A01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 		AF4A23521DD6BCF700F21A01 = {
 			isa = PBXGroup;
 			children = (
+				AF2E0AAE1E7CB62C00F5DBA9 /* LICENSE */,
 				AFA676F31DD7114D002FD35C /* README.md */,
 				AFA676F71DD713A0002FD35C /* Simulator Screen Shot Nov 12, 2016, 2.40.15 PM.png */,
 				AF4A235D1DD6BCF700F21A01 /* KPRColorPicker-Example */,
@@ -143,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF2E0AAF1E7CB62C00F5DBA9 /* LICENSE in Resources */,
 				AF4A23691DD6BCF700F21A01 /* LaunchScreen.storyboard in Resources */,
 				AF4A23661DD6BCF700F21A01 /* Assets.xcassets in Resources */,
 				AF4A23731DD6BD3000F21A01 /* KPRColorPickerAssets.xcassets in Resources */,
